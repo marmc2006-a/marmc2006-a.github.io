@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cafeteria Don Gatuno</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* =============================================
+       BARRA DE NAVEGACIÓN SUPERIOR
+       ============================================= */
+        .navbar {
+            background: linear-gradient(90deg, #693d03 0%, #e2cd92 100%);
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            margin-left: 20px;
+            padding: 8px 16px;
+            background-color: rgba(255, 222, 222, 0.15);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* =============================================
+       ENCABEZADO CON IMÁGENES CAMBIANTES
+       ============================================= */
+        .encabezado {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        .encabezado img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .encabezado img.activa {
+            opacity: 1;
+        }
+
+        .capa-sombra {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        .contenido-texto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .contenido-texto h1 {
+            font-size: 52px;
+            margin: 0 0 10px 0;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .contenido-texto p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .contenido-texto .boton {
+            padding: 10px 28px;
+            background-color: white;
+            color: #333;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .contenido-texto .boton:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+        /* ESTILOS GENERALES Y COLORES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fdfbf7; /* Color vainilla elegante para el cuerpo */
+    color: #3b2214;
+    line-height: 1.6;
+}
+
+/* NAVEGACIÓN */
+nav {
+    background-color: #3b2214; /* Café chocolate */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    color: #d4a373;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: #fdfbf7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d4a373;
+}
+
+/* ENCABEZADO Y CARRUSEL (Estructura original intacta) */
+.encabezado {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.encabezado img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.encabezado img.activa {
+    opacity: 1;
+}
+
+.capa-sombra {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.contenido-texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+}
+
+.contenido-texto h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.contenido-texto p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.boton {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #d4a373;
+    color: #3b2214;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.boton:hover {
+    background-color: #faedcd;
+    transform: scale(1.05);
+}
+
+/* SECCIONES DEL CUERPO (Fondo Vainilla) */
+section {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #3b2214;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.titulo-seccion::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #d4a373;
+    margin: 0.5rem auto 0;
+}
+
+.sobre-nosotros p {
+    font-size: 1.1rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+/* TARJETAS DE DIFERENCIACIÓN */
+.diferencia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tarjeta {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(59, 34, 20, 0.08);
+    border-top: 4px solid #3b2214;
+    text-align: center;
+}
+
+.tarjeta h3 {
+    color: #3b2214;
+    margin-bottom: 1rem;
+}
+
+/* NIVELES DE SABOR */
+.niveles-sabor {
+    background-color: #f4ebd0; /* Tono vainilla tostado */
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+    border: 1px solid #d4a373;
+}
+
+.lista-niveles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.nivel-item {
+    background: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-left: 5px solid #3b2214;
+}
+
+.nivel-badge {
+    background: #3b2214;
+    color: #d4a373;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* PIE DE PÁGINA Y CONTACTOS (Color Café Chocolate con Recuadros) */
+footer {
+    background-color: #3b2214; /* Café chocolate principal */
+    color: #fdfbf7;
+    padding: 4rem 2rem 2rem;
+    border-top: 4px solid #d4a373;
+}
+
+.footer-contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* RECUADROS DE COLOR CAFÉ CHOCOLATE INTERNO */
+.footer-recuadro {
+    background-color: #4e2e1a; /* Un tono café chocolate contrastante y elegante */
+    border: 1px solid #d4a373;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.footer-recuadro h4 {
+    color: #d4a373;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #d4a373;
+    padding-bottom: 0.5rem;
+}
+
+.footer-recuadro p, .footer-recuadro li {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    list-style: none;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(212, 163, 115, 0.3);
+    font-size: 0.85rem;
+    color: #d4a373;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <!-- "Menu" funciona como tu enlace de Inicio -->
+        <a href="Untitled-3.html" class="logo">Menu</a>
+        
+        <!-- Enlaces horizontales directos, sin botón de opciones ni "Inicio" -->
+        <div class="nav-links">
+            <a href="historia.html">Historia</a>
+            <a href="Cafes y Pasteles.html">Cafes Y Pasteles</a>
+            <a href="nosotros.html">Contactos</a>
+        </div>
+    </nav>
+    <div class="encabezado">
+        <img src="Imagenes/images.JPG" alt="Potosí" class="activa">
+        <img src="Imagenes/1.JPG" alt="Potosí">
+        <img src="Imagenes/2.JPG" alt="Potosí">
+        <img src="Imagenes/3.JPG" alt="Potosí">
+        <div class="capa-sombra"></div>
+        <div class="contenido-texto">
+            <h1>Descubre Nuestro Lugar</h1>
+            <p>Historia, Sabores y Experiencia.</p>
+            <a href="#" class="boton">DESCUBRIR</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- CUERPO DE LA PÁGINA (Estilo Vainilla) -->
+    <section class="sobre-nosotros" id="nosotros">
+        <h2 class="titulo-seccion">Cafetería Don Gatuno</h2>
+        <p>
+            Inspirada en el encanto de nuestro felino siames con sombrero de chef y con la imponente vista transparente del Cerro Rico de Potosí, <strong>Cafetería Don Gatuno</strong> nace para ofrecer una experiencia única. Nuestra idea principal es fusionar la tradición potosina con un concepto de alta repostería y café de especialidad en un ambiente sofisticado y acogedor.
+        </p>
+    </section>
+
+    <section id="diferencia">
+        <h2 class="titulo-seccion">Lo Que Nos Diferencia de la Competencia</h2>
+        <div class="diferencia-grid">
+            <div class="tarjeta">
+                <h3>Calidad Superior</h3>
+                <p>Seleccionamos rigurosamente granos de altura e ingredientes artesanales prémium para garantizar el mejor sabor en cada taza.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Concepto Temático Exclusivo</h3>
+                <p>Un espacio elegante que rinde homenaje a la cultura local con un diseño que enamora a cada visitante.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Atención Dedicada</h3>
+                <p>Cuidamos cada detalle para que tu estancia sea cálida, cómoda y memorable de principio a fin.</p>
+            </div>
+        </div>
+
+        <!-- SABORES POR NIVEL PARA CADA CLIENTE -->
+        <div class="niveles-sabor">
+            <h2 class="titulo-seccion" style="margin-bottom: 1rem;">Sabores por Nivel para Cada Cliente</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem;">Porque cada paladar es único, personalizamos la intensidad de tu café:</p>
+            
+            <div class="lista-niveles">
+                <div class="nivel-item">
+                    <span class="nivel-badge">Nivel 1</span>
+                    <div>
+                        <strong>Suave & Dulce:</strong> Cuerpo ligero con notas acarameladas y sutiles toques frutales.
+                    </div>
+                </div>
+                <div class="nivel-item">
+                    <span class="nivel-badge">Nivel 2</span>
+                    <div>
+                        <strong>Equilibrado:</strong> El balance perfecto para nuestros clientes.
+                    </div>
+                </div>
+                <div class="nivel-item">
+                    <span class="nivel-badge">Nivel 3</span>
+                    <div>
+                        <strong>Intenso & Robusto:</strong> Para verdaderos amantes del café puro, con notas profundas de cacao amargo  y dulce.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA Y CONTACTOS  -->
+    <footer id="contacto">
+        <div class="footer-contenedor">
+            <!-- Recuadro 1 -->
+            <div class="footer-recuadro">
+                <h4>Cafetería Don Gatuno</h4>
+                <p>El punto de encuentro ideal en Potosí, combinando tradición, café de altura y una atención exelente.</p>
+            </div>
+            <!-- Recuadro 2: Contactos y Correos -->
+            <div class="footer-recuadro">
+                <h4>Contacto y Ubicación</h4>
+                <p>📍 Calle Linares #123, Potosí - Bolivia</p>
+                <p>📞 Teléfono / WhatsApp: +591 68413021</p>
+                <p>✉️ Correo General: contacto@dongatunocafe.com</p>
+                <p>✉️ Pedidos: pedidos@dongatunocafe.com</p>
+            </div>
+            <!-- Recuadro 3 -->
+            <div class="footer-recuadro">
+                <h4>Horarios de Atención</h4>
+                <p>Lunes a Sábado: 08:00 - 21:30</p>
+                <p>Domingos: 09:00 - 20:30</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Cafetería Don Gatuno. Todos los derechos reservados con autor Prohibido el uso de copiright.</p>
+        </div>
+    </footer>
+    <h1>Historia</h1>
+    <h2>Cafes Y Pasteles</h2>
+    
+
+    <!-- LLAMADO AL SCRIPT EXTERNO -->
+    <script src="js/script.js"></script>
+</body>
+</html>
+</body>
+
+</html>
