@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Cafetería Don Gatuno</title>
+    <link rel="stylesheet" href="nosotros.css">
+</head>
+<style>
+    /* =============================================
+   ESTILOS GENERALES
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fdfbf7; /* Vainilla elegante */
+    color: #3b2214; /* Chocolate oscuro */
+    line-height: 1.6;
+}
+
+/* =============================================
+   BARRA DE NAVEGACIÓN
+   ============================================= */
+.navbar {
+    background: linear-gradient(90deg, #693d03 0%, #e2cd92 100%);
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    padding: 8px 16px;
+    background-color: rgba(255, 222, 222, 0.15);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* =============================================
+   ENCABEZADO
+   ============================================= */
+.header-nosotros {
+    height: 38vh;
+    background-color: #3b2214;
+    background-image: url('Imagenes/historia-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid #d4a373;
+}
+
+.capa-sombra {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(35, 18, 10, 0.72);
+}
+
+.contenido-texto {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 0 1rem;
+}
+
+.contenido-texto h1 {
+    font-size: 3rem;
+    color: #d4a373;
+    margin-bottom: 10px;
+}
+
+.contenido-texto p {
+    font-size: 1.2rem;
+}
+
+/* =============================================
+   CONTENEDOR PRINCIPAL
+   ============================================= */
+.contenedor-nosotros {
+    max-width: 1150px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #3b2214;
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo-seccion {
+    text-align: center;
+    color: #693d03;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* =============================================
+   1. SECCIÓN DEL FUNDADOR
+   ============================================= */
+.seccion-fundador {
+    margin-bottom: 5rem;
+}
+
+.fundador-tarjeta {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 20px rgba(59, 34, 20, 0.08);
+    border-left: 6px solid #d4a373;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
+    opacity: 1;
+}
+
+.fundador-imagen {
+    flex: 1 1 280px;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.fundador-imagen img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 4px solid #e2cd92;
+    background-color: #e2cd92;
+}
+
+.fundador-relato {
+    flex: 2 1 400px;
+}
+
+.fundador-relato .etiqueta {
+    display: inline-block;
+    background-color: #f4ebd0;
+    color: #693d03;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+.fundador-relato h2 {
+    font-size: 2rem;
+    color: #3b2214;
+    margin-bottom: 1rem;
+}
+
+.fundador-relato p {
+    margin-bottom: 1rem;
+    text-align: justify;
+    font-size: 1.05rem;
+}
+
+.fundador-relato .firma {
+    font-weight: bold;
+    color: #693d03;
+    font-style: italic;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* =============================================
+   2. EQUIPO (2 CHEFS Y 2 BARISTAS)
+   ============================================= */
+.seccion-equipo {
+    margin-bottom: 5rem;
+}
+
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.miembro-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-bottom: 4px solid #3b2214;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 1;
+}
+
+.miembro-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(59, 34, 20, 0.15);
+}
+
+.foto-miembro {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.2rem;
+    display: block;
+    border: 4px solid #d4a373;
+    background-color: #e2cd92;
+}
+
+.miembro-card .cargo {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #d4a373;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+}
+
+.miembro-card h3 {
+    font-size: 1.3rem;
+    color: #3b2214;
+    margin-bottom: 0.8rem;
+}
+
+.miembro-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* =============================================
+   3. EL ARTE DE LA ELABORACIÓN
+   ============================================= */
+.seccion-elaboracion {
+    margin-bottom: 4rem;
+}
+
+.caja-elaboracion {
+    background-color: #4e2e1a;
+    color: #fdfbf7;
+    padding: 3rem;
+    border-radius: 15px;
+    border: 2px solid #d4a373;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.caja-elaboracion .titulo-seccion {
+    color: #d4a373;
+    margin-bottom: 1.2rem;
+}
+
+.caja-elaboracion p {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* =============================================
+   4. CONCLUSIÓN / FILOSOFÍA
+   ============================================= */
+.seccion-conclusion {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+}
+
+.seccion-conclusion blockquote {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #3b2214;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    padding: 1.5rem;
+    border-top: 2px solid #d4a373;
+    border-bottom: 2px solid #d4a373;
+}
+
+.btn-explorar {
+    display: inline-block;
+    background-color: #693d03;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-explorar:hover {
+    background-color: #d4a373;
+    color: #3b2214;
+}
+
+/* =============================================
+   PIE DE PÁGINA (FOOTER)
+   ============================================= */
+footer {
+    background-color: #3b2214;
+    color: #fdfbf7;
+    padding: 3rem 2rem 1.5rem;
+    border-top: 4px solid #d4a373;
+}
+
+.footer-contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-recuadro {
+    background-color: #4e2e1a;
+    border: 1px solid #d4a373;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.footer-recuadro h4 {
+    color: #d4a373;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #d4a373;
+    padding-bottom: 0.5rem;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 163, 115, 0.3);
+    font-size: 0.85rem;
+    color: #d4a373;
+}
+</style>
+<body>
+    <!-- Barra de Navegación Estandarizada -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Menu</a>
+        <div class="nav-links">
+            <a href="historia.html">Historia</a>
+            <a href="menu.html">Cafes Y Pasteles</a>
+            <a href="nosotros.html">Nosotros</a>
+        </div>
+    </nav>
+
+    <!-- Encabezado -->
+    <header class="header-nosotros">
+        <div class="capa-sombra"></div>
+        <div class="contenido-texto">
+            <h1>El Alma de Don Gatuno</h1>
+            <p>Las manos, la pasión y el corazón detrás de cada taza y cada receta en Potosí</p>
+        </div>
+    </header>
+
+    <main class="contenedor-nosotros">
+        
+        <!-- 1. RELATO DEL FUNDADOR -->
+        <section class="seccion-fundador">
+            <div class="fundador-tarjeta">
+                <div class="fundador-imagen">
+                    <!-- Coloca aquí tu foto en la carpeta Imagenes/ -->
+                    <img src="Imagenes/fundador.jpg" alt="Fundador de Cafetería Don Gatuno">
+                </div>
+                <div class="fundador-relato">
+                    <span class="etiqueta">El Corazón del Proyecto</span>
+                    <h2>Nuestra Inspiración en las Alturas</h2>
+                    <p>
+                        Cafetería Don Gatuno nació de un sueño sencillo pero profundo: crear en el corazón de Potosí un verdadero refugio para las tardes frías. Como amante del diseño, la cultura de nuestra tierra y las buenas conversaciones, siempre sentí que nuestra ciudad merecía un espacio donde el aroma del mejor café de altura boliviano se encontrara con el dulzor nostálgico de nuestra repostería tradicional.
+                    </p>
+                    <p>
+                        La figura de Don Gatuno representa esa calidez hogareña, la tranquilidad de una pausa sin prisas y el cariño con el que recibimos a cada visitante. Aquí no solo servimos café; compartimos identidad, historia y el abrazo cálido que todos buscamos al caer la tarde frente al Cerro Rico.
+                    </p>
+                    <p class="firma">— Marcelo Medrano, Fundador</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. NUESTROS MAESTROS (2 CHEFS Y 2 BARISTAS) -->
+        <section class="seccion-equipo">
+            <h2 class="titulo-seccion">Nuestros Maestros</h2>
+            <p class="subtitulo-seccion">Un equipo dedicado a honrar la tradición y perfeccionar cada detalle</p>
+
+            <div class="equipo-grid">
+                <!-- Chef 1 -->
+                <div class="miembro-card">
+                    <img src="Imagenes/chef1.jpg" alt="Maestro Pastelero Tradicional" class="foto-miembro">
+                    <span class="cargo">Maestro Pastelero Tradicional</span>
+                    <h3>Don Mateo Quispe</h3>
+                    <p>Especialista en repostería potosina con más de 12 años rescatando las recetas originales de chambergos, tahua-tahuas y empanadas blanqueadas.</p>
+                </div>
+
+                <!-- Chef 2 -->
+                <div class="miembro-card">
+                    <img src="Imagenes/chef2.jpg" alt="Chef de Repostería Internacional" class="foto-miembro">
+                    <span class="cargo">Chef de Pastelería Fina</span>
+                    <h3>Valeria Mendoza</h3>
+                    <p>Experta en masas laminadas y chocolatería europea. Encargada de fusionar técnicas internacionales con ingredientes nobles del altiplano como la quinua real.</p>
+                </div>
+
+                <!-- Barista 1 -->
+                <div class="miembro-card">
+                    <img src="Imagenes/barista1.jpg" alt="Barista Principal" class="foto-miembro">
+                    <span class="cargo">Barista Principal</span>
+                    <h3>Carlos Mamani</h3>
+                    <p>Especialista en extracción de granos de especialidad de Los Yungas y Caranavi. Domina el tueste medio y los métodos filtrados que resaltan notas achocolatadas.</p>
+                </div>
+
+                <!-- Barista 2 -->
+                <div class="miembro-card">
+                    <img src="Imagenes/barista2.jpg" alt="Barista de Arte Latte" class="foto-miembro">
+                    <span class="cargo">Barista y Arte Latte</span>
+                    <h3>Sofía Villarroel</h3>
+                    <p>Apasionada por la texturización perfecta de la leche y las infusiones tradicionales como nuestra sultana especiada. Cada taza que sale de su barra es una obra de arte.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. EL ARTE DE LA ELABORACIÓN -->
+        <section class="seccion-elaboracion">
+            <div class="caja-elaboracion">
+                <h2 class="titulo-seccion">El Arte de la Elaboración</h2>
+                <p>
+                    En nuestra cocina y barra no existen los atajos. Trabajamos exclusivamente con ingredientes frescos de productores locales, respetando los tiempos naturales de fermentación de nuestras masas y horneando cada lote a diario desde las primeras horas de la mañana. Seleccionamos granos bolivianos cosechados a mano para garantizar que cada sorbo conserve la pureza, el cuerpo y el aroma que definen a nuestra tierra.
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. CONCLUSIÓN / FILOSOFÍA -->
+        <section class="seccion-conclusion">
+            <blockquote>
+                "Más que una cafetería, somos el refugio más dulce de tus tardes. Ven, toma asiento, deja que el frío de afuera se quede tras la puerta y sé parte de nuestra historia."
+            </blockquote>
+            <a href="menu.html" class="btn-explorar">Explorar Nuestra Carta</a>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página con Datos de Contacto -->
+    <footer id="contacto">
+        <div class="footer-contenedor">
+            <div class="footer-recuadro">
+                <h4>Cafetería Don Gatuno</h4>
+                <p>El refugio más dulce de tus tardes en Potosí.</p>
+            </div>
+            <div class="footer-recuadro">
+                <h4>Visítanos y Contáctanos</h4>
+                <p>📍 Calle Linares #123, Potosí - Bolivia</p>
+                <p>📞 +591 68413021</p>
+            </div>
+            <div class="footer-recuadro">
+                <h4>Horarios de Atención</h4>
+                <p>Lun - Sáb: 08:00 - 21:30</p>
+                <p>Dom: 09:00 - 20:30</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Cafetería Don Gatuno. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="nosotros.js"></script>
+</body>
+</html>
